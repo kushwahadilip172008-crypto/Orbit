@@ -1,0 +1,35 @@
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: var(--s-4);
+  padding: var(--s-3) 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 0 var(--s-4) var(--s-3);
+}
+
+.avatar { width: 40px; height: 40px; border-radius: 50%; }
+
+.headerText { display: flex; flex-direction: column; }
+
+.media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-subtle);
+}
+
+.actions {
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+}
+
+.body { padding: 0 var(--s-4) var(--s-2); }
+
+.line { border-radius: 4px; }

@@ -1,0 +1,142 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--overlay);
+  display: grid;
+  place-items: center;
+  padding: var(--s-4);
+}
+
+.modal {
+  width: min(900px, 100%);
+  max-height: 90dvh;
+  background: var(--bg-elevated);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.title { margin: 0; font-size: 16px; font-weight: 700; flex: 1; text-align: center; }
+
+.close, .back {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-secondary);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.close:hover, .back:hover { background: var(--surface-hover); color: var(--text); }
+
+.modeSwitch {
+  display: flex;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.modeBtn {
+  padding: 8px 16px;
+  border-radius: var(--r-full);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.modeActive { background: var(--c-primary-500); color: #fff; }
+
+.content { flex: 1; overflow-y: auto; }
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  padding: var(--s-12) var(--s-6);
+  margin: var(--s-4);
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--r-lg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
+}
+.dropzone:hover { border-color: var(--c-primary-500); background: var(--bg-subtle); color: var(--text); }
+
+.dropTitle { margin: 0; font-weight: 700; font-size: 16px; color: var(--text); }
+.dropHint { margin: 0; font-size: 13px; }
+
+.editor {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--s-4);
+  padding: var(--s-4);
+}
+
+.previewWrap {
+  background: #000;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.editorSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.authorRow { display: flex; align-items: center; gap: var(--s-2); }
+.authorName { font-weight: 700; font-size: 14px; }
+
+.caption, .location {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--border);
+  resize: vertical;
+}
+.location { font-size: 13px; }
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border-top: 1px solid var(--border);
+}
+
+.spin { animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 640px) {
+  .editor { grid-template-columns: 1fr; }
+  .previewWrap { aspect-ratio: 4 / 5; }
+}

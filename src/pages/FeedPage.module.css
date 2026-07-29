@@ -1,0 +1,70 @@
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, var(--max-w-feed)) var(--sidebar-w);
+  gap: var(--s-8);
+  max-width: var(--max-w-app);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-4) var(--s-12);
+}
+
+.feed { min-width: 0; }
+
+.suggestions {
+  position: sticky;
+  top: var(--s-6);
+  align-self: start;
+  padding-top: var(--s-2);
+}
+
+.suggestCard {
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+
+.suggestTitle {
+  margin: 0 0 var(--s-2);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.suggestHint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.suggestHint a { color: var(--c-primary-500); font-weight: 600; }
+
+.errorBox {
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 14px;
+}
+.errorBox button {
+  color: var(--c-primary-500);
+  font-weight: 600;
+  margin-left: var(--s-2);
+}
+
+.sentinel { minHeight: 80px; }
+
+.end {
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  padding: var(--s-6) 0;
+}
+
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; max-width: var(--max-w-feed); }
+  .suggestions { display: none; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: var(--s-3) 0 var(--s-12); }
+}

@@ -1,0 +1,218 @@
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: var(--s-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3) var(--s-4);
+}
+
+.authorLink {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.authorName {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.verified {
+  width: 14px; height: 14px;
+  background: linear-gradient(135deg, var(--c-primary-500), var(--c-accent-500));
+  border-radius: 50%;
+  position: relative;
+}
+.verified::after {
+  content: "";
+  position: absolute;
+  inset: 3px 4px 4px 3px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  width: 6px; height: 3px;
+  left: 4px; top: 5px;
+}
+
+.location {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.moreBtn:hover { background: var(--surface-hover); }
+
+.mediaWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.heartBurst {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3));
+}
+
+.dots {
+  position: absolute;
+  top: var(--s-2);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.dotActive { background: #fff; transform: scale(1.2); }
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 22px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.navBtn:hover { background: rgba(0,0,0,0.7); }
+.prev { left: var(--s-2); }
+.next { right: var(--s-2); }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  color: var(--text);
+  transition: transform var(--dur-fast) var(--ease-spring), color var(--dur-fast) var(--ease-out);
+}
+.action:not(:disabled):active { transform: scale(0.88); }
+.actionActive { color: var(--c-error-500); }
+
+.saveAction { margin-left: auto; }
+.saveActive { color: var(--c-primary-500); }
+
+.body {
+  padding: 0 var(--s-4) var(--s-2);
+}
+
+.likes {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.caption {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.captionAuthor {
+  font-weight: 700;
+}
+.captionAuthor:hover { color: var(--c-primary-500); }
+
+.hashtag, .mention { color: var(--c-primary-500); font-weight: 600; }
+.hashtag:hover, .mention:hover { color: var(--c-primary-600); }
+
+.commentsLink {
+  display: inline-block;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.commentsLink:hover { color: var(--text-secondary); }
+
+.time {
+  display: block;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.commentForm {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: var(--s-2) var(--s-4);
+}
+
+.commentInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: var(--s-2) 0;
+}
+.commentInput::placeholder { color: var(--text-tertiary); }
+
+.commentSubmit {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--c-primary-500);
+  padding: var(--s-2) var(--s-2);
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.commentSubmit:disabled { opacity: 0.4; cursor: default; }

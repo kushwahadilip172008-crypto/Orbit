@@ -1,0 +1,121 @@
+.page {
+  max-width: var(--max-w-app);
+  margin: 0 auto;
+  padding: var(--s-6) var(--s-4) var(--s-12);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  max-width: 480px;
+  margin: 0 auto var(--s-6);
+  padding: var(--s-2) var(--s-3);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.searchBar:focus-within {
+  border-color: var(--c-primary-500);
+  background: var(--bg-elevated);
+  box-shadow: var(--ring);
+}
+
+.searchIcon { color: var(--text-tertiary); flex-shrink: 0; }
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: var(--s-1) 0;
+}
+
+.clear {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text-tertiary);
+  background: var(--bg-muted);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-md);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.resultItem:hover { background: var(--surface-hover); }
+
+.resultMeta { display: flex; flex-direction: column; }
+.resultName { font-weight: 700; font-size: 14px; }
+.resultSub { font-size: 13px; color: var(--text-tertiary); }
+
+.hint {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: var(--s-6) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.gridItem {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gridItem.large {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.gridItem img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur) var(--ease-out);
+}
+.gridItem:hover img { transform: scale(1.04); }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+}
+.gridItem:hover .overlay { opacity: 1; }
+
+.skeletonItem { aspect-ratio: 1 / 1; }
+
+.sentinel { height: 80px; }
+
+@media (max-width: 640px) {
+  .page { padding: var(--s-3) var(--s-2) var(--s-12); }
+}
