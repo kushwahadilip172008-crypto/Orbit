@@ -1,0 +1,114 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.92);
+  display: grid;
+  place-items: center;
+  padding: var(--s-4);
+}
+
+.close {
+  position: absolute;
+  top: var(--s-4);
+  right: var(--s-4);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.close:hover { background: rgba(255,255,255,0.12); }
+
+.stage {
+  width: min(420px, 100%);
+  height: min(720px, 90dvh);
+  position: relative;
+}
+
+.viewport {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #000;
+}
+
+.media {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: var(--s-3) var(--s-3) var(--s-2);
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), transparent);
+  z-index: 2;
+}
+
+.progressRow {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--s-2);
+}
+
+.progressTrack {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #fff;
+  transition: width 0.05s linear;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.time {
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+}
+
+.tapLeft, .tapRight {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  width: 30%;
+  z-index: 1;
+}
+.tapLeft { left: 0; }
+.tapRight { right: 0; }
+
+.caption {
+  position: absolute;
+  bottom: var(--s-6);
+  left: 0; right: 0;
+  padding: 0 var(--s-4);
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  z-index: 2;
+}
